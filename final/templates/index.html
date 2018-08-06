@@ -1,10 +1,9 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Task 3</title>
-
+	<title>Auryn Homepage</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
@@ -13,90 +12,100 @@
 	<script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
 
 	<style type="text/css">
-		.large-box {
-			width: 200px;
-			height: 200px;
-			background: #f1f1f1;
-			padding: 5px;
-			margin: 0 10px 10px 0;
-		}
-		.small-box {
-			height: 100px;
-			width: 100px;
-			background: grey;
-			padding: 5px;
-		}
+        body {
+            width: auto;
+            height: auto;
+            max-width: 100%; overflow: hidden;
+            font-family: "Montserrat", sans-serif;
+            background: linear-gradient(to top left, #ff565c 5%, #5300aa 95%);
+            max-height: 100%;
+
+        }
+        h1 {
+            font-size: 60px;
+        }
+        h2 {
+            font-size: 45px;
+        }
+        h4{
+            font-size: 50px;
+        }
+        div {
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-content: flex-start;
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            height: 1000px;
+        }
+        .click:hover {
+            background-color: #DCDCDC;
+            border-style: dotted;
+        }
+
+        .aligner {
+            display: flex;
+            align-items: center;
+            vertical-align: top;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+        .click {
+            height: 10%;
+            width: 35%;
+            background-color: white;
+            color: #f6a888;
+            border-radius: 26px;
+            font-size: 36px;
+            vertical-align: top;
+        }
+        #first {
+            margin-right: 5%;
+            vertical-align: top;
+        }
+        #second {
+            margin-left: 5%;
+            vertical-align: top;
+        }
+        .header {
+            background-image: url("images/aurynlogo.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            position: center;
+            display:block;
+            width:100%;
+            margin-top: 50%;
+            min-height:120px;
+            position: running(header);
+        }
 	</style>
 
 </head>
 
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
-				<h3>Task 3</h3>
-				<div class="shape-container">
-					<div id="origin-box" class="large-box">
-						<div id="drag-box" class="small-box text-light">
-						  <p>Box</p>
-						</div>
-					</div>
+    <div class="header"></div>
+    <h1 style="color:white"><center> Welcome!</center></h1>
+    <br />
+    <h2 style="color:white"><center> I'm a </center></h2>
+    <div class="container">
+  <div class="click" id="first">
+    <div class="aligner">
+      <h4>RIDER</h4>
+    </div>
+  </div>
+    <br />
+  <div class="click" id="second">
+    <div class="aligner">
+      <h4>DRIVER</h4>
+      </div>
+  </div>
+</div>
 
-					<div id="drop-box-2" class="large-box">
-					  <p>Drop here</p>
-					</div>
-
-					<div id="drop-box-1" class="large-box">
-					  <p>Drop here</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-  <script>
-    $( "#drag-box" ).draggable( {revert: "invalid"});
-    $( "#drop-box-2" ).droppable({
-      classes: {
-        "ui-droppable-hover": "ui-state-hover"
-      },
-      drop: function( event, ui ) {
-        $( "#drag-box" )
-          .addClass( "ui-state-highlight" )
-          .find( "p" )
-            .html( "Dropped Box" );
-            $( "#drag-box" ).css("background-color","#8B0000");
-      },
-      over: function(event, ui) {
-        $( "#drag-box" )
-        .css("background-color", "#DC143C");
-      },
-      out: function(event, ui) {
-        $("#drag-box")
-        .css("background-color","grey")
-      }
-    });
-
-    $( "#drop-box-1" ).droppable({
-      classes: {
-        "ui-droppable-hover": "ui-state-hover"
-      },
-      drop: function( event, ui ) {
-        $( "#drag-box" )
-          .addClass( "ui-state-highlight" )
-          .find( "p" )
-            .html( "Dropped Box" );
-            $( "#drag-box" ).css("background-color","#0000CD");
-      },
-      over: function(event, ui) {
-        $( "#drag-box" )
-        .css("background-color", "#00FFFF");
-      },
-      out: function(event, ui) {
-        $("#drag-box")
-        .css("background-color","grey")
-      }
-    });
-
-  </script>
 </body>
 </html>
