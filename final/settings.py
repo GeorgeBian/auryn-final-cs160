@@ -25,7 +25,7 @@ SECRET_KEY = 'of*1_dbynim*6(&%xz8wr=*m(9^gajajk8^i)k-0wfa7j-s-(('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'final.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/Users/Gebrido/Desktop/cs160/final/auryn-final-cs160/final/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
