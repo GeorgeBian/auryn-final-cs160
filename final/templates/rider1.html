@@ -3,36 +3,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Task 3</title>
+	<title>Rider view1</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static '/vendor/bootstrap-4.1/bootstrap.min.css' %}">
 
-	<script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
-	<script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
-
+  <script src="{% static '/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static '/vendor/jquery-ui/jquery-ui.min.js' %}"></script>
 	<style type="text/css">
-  .About-Panel {
-    width: 345px;
-    height: 614px;
+	
+  .about-panel {
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
-    background-color: rgba(246, 246, 246, 0.74);
+		background-color: rgba(246, 246, 246, 0.74);
   }
+	.profile {
+	margin-left: 10px;
+  width: 172px;
+  height: 172px;
+	}
+	.Introduction {
+  width: 243px;
+  height: 47px;
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #303030;
+	}
+
+	.aboutme {
+  width: 269px;
+  height: 18px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0e0e0e;
+  -webkit-text-stroke: 0 #000000;
+}
+
+  .story {
+  width: 135px;
+  height: 32px;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  }
+
+	.interaction {
+  font-family: Roboto;
+  font-size: 36px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+	.side {
+		background-color: rgba(246, 246, 246, 0.74);
+	}
 	</style>
 
 </head>
 
 <body>
-	<div class="rider1">
-		<div class="about-panel">
-			<img src="{% static 'Photo.png' %}">
+	<div class="container-fluid">
+		<div class="about-panel row">
+			<div class = "side col-md-4">
+				<div class="profile">
+					<img src="{% static 'images/Photo.png' %}">
+				</div>
+				<div class="introduction">
+					<h2> Hi, I'm Brian! </h2>
+				</div>
+				<div class="aboutMe">
+					<h3> About Me </h3>
+					<p> I was born and raised in Sacramento and have been a huge Warriors fan all my life. When I was young, an unfortunate accident left me with impaired hearing. I’m glad to be of service to you today!
+					</p>
+				</div>
+				<div class="story">
+					<img src="{% static 'images/MyStory-Button.png' %}">
+				</div -->
+			</div>
+			<div class = "main col-md-8">
+				<div class="interaction">
+					<h3> Interact with me!</h3>
+					<p> I may be hard of hearing, but it doesn’t mean we can’t communicate! Answer some questons or leave me a doodle. It’ll make my day!
+					</p>
+				</div>
+				<div class="icons row">
+					<div class="answer col-md-6">
+						<img src="{% static 'images/Answer.png' %}">
+					</div>
+					<div class="answer col-md-6">
+						<img src="{% static 'images/draw.png' %}">
+					</div>
+				</div>
+				<div class="tip row">
+					<div class="answer col-md-6">
+						<img src="{% static 'images/Tip-Button.png' %}">
+					</div>
+					<div class="answer col-md-6">
+						<img src="{% static 'images/Donate-Button.png' %}">
+					</div>
 				</div>
 			</div>
+		</div>
+		</div>
+	</div>
 
-  <script>
 
-  </script>
 </body>
 </html>

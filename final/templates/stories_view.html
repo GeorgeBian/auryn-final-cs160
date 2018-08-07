@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Auryn Driver Stories View</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
+
+	<script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+	<script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+
+	<style type="text/css">
+        body {
+            width: auto;
+            height: auto;
+            max-width: 100%; overflow: hidden;
+            font-family: "Montserrat", sans-serif;
+            background: white;
+            max-height: 100%;
+
+        }
+        h1 {
+            font-size: 60px;
+        }
+        h2 {
+            font-size: 45px;
+        }
+        h4{
+            font-size: 50px;
+        }
+        div {
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-content: flex-start;
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            height: 1000px;
+        }
+        .click:hover {
+            background-color: #DCDCDC;
+            border-style: dotted;
+        }
+
+        .aligner {
+            display: flex;
+            align-items: center;
+            vertical-align: top;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+        .click {
+            height: 10%;
+            width: 35%;
+            background-color: white;
+            color: #f6a888;
+            border-radius: 26px;
+            font-size: 36px;
+            vertical-align: top;
+        }
+        #first {
+            margin-right: 5%;
+            vertical-align: top;
+        }
+        #second {
+            margin-left: 5%;
+            vertical-align: top;
+        }
+        .header {
+            background-image: url("images/auryn2.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            position: center;
+            display:block;
+            width:100%;
+            margin-top: 10%;
+            min-height:120px;
+            position: running(header);
+        }
+
+        .BOARD-STORIES- {
+          width: 703px;
+          height: 94px;
+          font-size: 48px;
+          font-weight: normal;
+          font-style: normal;
+          padding-left: 86px;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: #000000;
+        }
+        .timestamp {
+          width: 400px;
+          height: 46px;
+          font-size: 40px;
+          font-weight: normal;
+          font-style: normal;
+          padding-left: 86px;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: #000000;
+        }
+        .Rectangle-174 {
+          width: 800px;
+          height: 306px;
+          border-radius: 30px;
+          padding-left: 86px;
+          background-color: #8d8b8b;
+          margin-left: 86px;
+        }
+        .Rectangle-183 {
+          width: 800px;
+          height: 303px;
+          border-radius: 30px;
+          padding-left: 86px;
+          background-color: #a49e9e;
+          margin-left: 86px;
+        }
+          .Rectangle-168 {
+            width: 1308px;
+            height: 133px;
+            border-radius: 4px;
+            box-shadow: 2px 9px 50px 0 rgba(0, 0, 0, 0.25);
+            background-color: #fffefe;
+            border: solid 1px #c4c4c4;
+          }
+
+
+          .navbar {
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 2px 9px 50px 0 rgba(0, 0, 0, 0.25);
+            background-color: #fffefe;
+            border: solid 1px #c4c4c4;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+          }
+
+          .navbar a {
+            float: left;
+            display: block;
+            border-radius: 4px;
+            box-shadow: 2px 9px 50px 0 rgba(0, 0, 0, 0.25);
+            background-color: #fffefe;
+            border: solid 1px #c4c4c4;
+            text-align: center;
+            padding: 30px 56px;
+            text-decoration: none;
+            font-size: 40px;
+          }
+
+          .navbar a:hover {
+            color: black;
+          }
+
+	</style>
+</head>
+<body>
+    <div class="header"></div>
+    <p class="BOARD-STORIES-"> BOARD | STORIES ></p>
+    <p class="timestamp">TODAY, 4PM</p>
+    <div class="Rectangle-174"></div>
+    <p class="timestamp">TODAY, 3:45PM</p>
+    <div class="Rectangle-183"></div>
+    <p class="timestamp">TODAY, 3:00PM</p>
+    <div class="Rectangle-183"></div>
+    <div class="navbar">
+      <a href="#stories" class="active">Stories View</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#settings">Settings</a>
+    </div>
+</body>
+</html>

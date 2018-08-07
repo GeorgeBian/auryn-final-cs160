@@ -120,5 +120,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
+
     '/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/static/',
 ]
