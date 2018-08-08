@@ -54,8 +54,12 @@ ROOT_URLCONF = 'final.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         #'DIRS': ['/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/templates/'],
         'DIRS': ['/Users/Gebrido/Desktop/cs160/final/auryn-final-cs160/final/templates/'],
+=======
+        'DIRS': ['/Users/karlaortiz/workspace/160/final/auryn-final-cs160/final/templates/'],
+>>>>>>> e10cbc197d2ecdd43a78ef3941a06147494eaaa2
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
