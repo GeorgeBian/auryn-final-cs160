@@ -54,7 +54,7 @@ ROOT_URLCONF = 'final.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/panchamyadav/Desktop/auryn-final-cs160/final/templates/'],
+        'DIRS': ['/Users/Gebrido/Desktop/cs160/final/auryn-final-cs160/final/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,5 +120,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    '/Users/panchamyadav/Desktop/auryn-final-cs160/final/static/',
+    '/Users/Gebrido/Desktop/cs160/final/auryn-final-cs160/final/static/',
 ]
