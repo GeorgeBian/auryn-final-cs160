@@ -118,6 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
-'/Users/karlaortiz/workspace/160/final/auryn-final-cs160/final/static/',
+    '/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/static/',
 ]
