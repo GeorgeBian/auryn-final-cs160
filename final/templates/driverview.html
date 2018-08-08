@@ -18,6 +18,7 @@
 
   .container {
     margin: 0 auto;
+    bottom: 0px;
     width: 100%;
   }
 
@@ -33,14 +34,13 @@
 
   .row {
     margin: 0 auto;
-    text-align: center;
   }
  
 
     .navbar {
-    box-shadow: 1px 2px 25px 0 rgba(0, 0, 0, 0.05);
+    border-top: 1px solid lightgray;
     background-color: #fffefe;
-    bottom: 0px;
+    bottom: -16px;
     position: fixed;
     width: 100%;
 
@@ -48,12 +48,12 @@
 
 
    .navbar a {
-    display: inline-flex;
+    float: left;
+    display: flex-inline;
     margin-top: 10px;
     padding-right: 10%;
     padding-left: 10%;
     background-color: #fffefe;
-    text-align: center;
     text-decoration: none;
 
   }
@@ -64,13 +64,13 @@
     margin: 0 auto;
   }
 
-    .header {
-      margin-top: 5%;
-      text-align: center;
-      position: center;
-      display:block;
-      width:100%;
-      position: running(header);
+  .header {
+    margin-top: 5%;
+    text-align: center;
+    position: center;
+    display:block;
+    width:100%;
+    position: running(header);
   }
 
   .dash:hover {
@@ -82,23 +82,6 @@
     transition: background-color 1s ease-out;
     }
 
-  .aligner {
-      display: flex;
-      align-items: center;
-      vertical-align: top;
-      justify-content: center;
-      height: 100%;
-      text-align: center;
-  }
-  .click {
-      height: 10%;
-      width: 35%;
-      background-color: white;
-      color: #f6a888;
-      border-radius: 26px;
-      font-size: 36px;
-      vertical-align: top;
-  }
 
   .dash-header{
     margin-top: 5px;
@@ -110,8 +93,6 @@
     display: inline-flex;
     max-width: 100px;
     max-height: 100px;
-    
-
   }
 
   .img-text {
@@ -127,9 +108,6 @@
   .round {
      border-radius: 50%;
      border: 3px solid white;
-
-
-
   }
 
   .border {
@@ -196,54 +174,51 @@
       Dashboard
      </div>
         <div class="row justify-content-xs-center">
-      <div class="col-xs-6 col-xs-6 dash">
-
-        <img src="images/trips.png" width="30" height="30" alt="trips">  &nbsp; &nbsp; 268 Trips
-      </div>
-      <div class="col-xs-6 col-xs-6 dash">
-       <img src="images/engaged.png" width="30" height="30" alt="engaged"> &nbsp; &nbsp;312 Engaged
-      </div>
-
+            <div class="col-xs-6 col-xs-6 dash">
+                <img src="images/trips.png" width="30" height="30" alt="trips">  &nbsp; &nbsp; 268 Trips
+            </div>
+            <div class="col-xs-6 col-xs-6 dash">
+              <img src="images/engaged.png" width="30" height="30" alt="engaged"> &nbsp; &nbsp;312 Engaged
+            </div>
+        </div>
     <div class="row justify-content-xs-center">
       <div class="col-xs-12 col-xs-12 dash">
-        <img src="images/draw.svg" width="30" height="30" alt="draw">  &nbsp; &nbsp;58 Drawings
+            <img src="images/draw.svg" width="30" height="30" alt="draw">  &nbsp; &nbsp;58 Drawings
       </div>
     </div>
+
     <div class="row justify-content-xs-center">
-      <div class="col-xs-12 col-xs-12 dash">
-        <img src="images/answer.svg" width="30" height="30" alt="answers"> &nbsp; &nbsp; 110 Answers
-      </div>
+        <div class="col-xs-12 col-xs-12 dash">
+            <img src="images/answer.svg" width="30" height="30" alt="answers"> &nbsp; &nbsp; 110 Answers
+        </div>
     </div>
+
     <div class="row justify-content-xs-center">
       <div class="col-xs-6 col-xs-6 dash">
-
-        <img src="images/reacts.png" width="30" height="30" alt="reactions"> &nbsp; &nbsp; 57 Reactions
+          <img src="images/reacts.png" width="30" height="30" alt="reactions"> &nbsp; &nbsp; 57 Reactions
       </div>
       <div class="col-xs-6 col-xs-6 dash">
-        <img src="images/tips.png" width="30" height="30" alt="tips"> &nbsp; &nbsp; 82 Tips
+          <img src="images/tips.png" width="30" height="30" alt="tips"> &nbsp; &nbsp; 82 Tips
       </div>
-     
-    </div>
-  
-    <div class="row justify-content-xs-center">
-
-      <nav class="navbar fixed-bottom navbar-light bg-light navbar-expand-xs">
-        <a class="nav-img" href="stories_view.html">
-          <img src="images/book.svg" width="30" height="30" alt="Story">
-        </a>
-        <a class="nav-img" href="driverview.html">
-          <img src="images/aurynblacklogo.png" width="30" height="30" alt="Home">
-        </a>
-        <a class="nav-img" href="settings_view.html">
-          <img src="images/gear.svg" width="30" height="30" alt="Settings">
-        </a>
-      </nav>
     </div>
 
-	</div>
+    <div class="row">
+      <div class="navbar col-xs-12">
+          <a class="nav-img" href="stories_view.html">
+            <img src="images/book.svg" width="30" height="30" alt="Story">
+          </a>
+          <a class="nav-img" href="driverview.html">
+            <img src="images/aurynblacklogo.png" width="50" height="27" alt="Home">
+          </a>
+          <a class="nav-img" href="settings_view.html">
+            <img src="images/gear.svg" width="30" height="30" alt="Settings">
+          </a>
+      </div>
+    </div>
 
 
   </div>
+
 
   <script>
     
