@@ -9,6 +9,9 @@ import datetime
 def index(request):
     return render(request, 'index.html')
 
+def map(request):
+	return render(request, 'question_map.html')
+
 def rider2(request):
 	return render(request, 'rider2.html')
 
@@ -30,6 +33,9 @@ def stories_view(request):
     if request.method == "GET":
       fetched_questions = Activity.objects.all()
     return render(request, 'templates/stories_view.html', {'question': fetched_questions})
+
+def draw(request):
+    return render(request, 'draw.html')
 
 # # Change back later
 # def stories_view(request):

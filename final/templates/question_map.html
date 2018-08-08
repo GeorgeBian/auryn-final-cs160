@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Map Question</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
+	<script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+
+	<style type="text/css">
+        body {
+            width: auto;
+            height: auto;
+            max-width: 100%; overflow: hidden;
+            font-family: "Montserrat", sans-serif;
+            background: white;
+            max-height: 100%;
+
+        }
+        h1 {
+            font-size: 60px;
+        }
+        h2 {
+            font-size: 45px;
+        }
+        h4{
+            font-size: 50px;
+        }
+        div {
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-content: flex-start;
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            height: 1000px;
+        }
+        .click:hover {
+            background-color: #DCDCDC;
+            border-style: dotted;
+        }
+
+        .aligner {
+            display: flex;
+            align-items: center;
+            vertical-align: top;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+        .click {
+            height: 10%;
+            width: 35%;
+            background-color: white;
+            color: #f6a888;
+            border-radius: 26px;
+            font-size: 36px;
+            vertical-align: top;
+        }
+        #first {
+            margin-right: 5%;
+            vertical-align: top;
+        }
+        #second {
+            margin-left: 5%;
+            vertical-align: top;
+        }
+        .header {
+            background-image: url("images/aurynlogo.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            position: center;
+            display:block;
+            width:100%;
+            margin-top: 50%;
+            min-height:120px;
+            position: running(header);
+        }
+        .Answer-Frame {
+          width: 968px;
+          height: 616px;
+          background-color: #ffffff;
+        }
+        .Ellipse-8 {
+          width: 71px;
+          height: 71px;
+          background-color: #e3e1e1;
+          clip-path: circle(2rem);
+        }
+        .speech-bubble {
+            position: relative;
+            height: 60%;
+            width: 90%;
+            background: #964ba9;
+            border-radius: .4em;
+            text-align: center;
+        }
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-right-color: #964ba9;
+            border-left: 0;
+            border-bottom: 0;
+            margin-top: -10px;
+            margin-left: -20px;
+        }
+        #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+	</style>
+
+</head>
+
+<body>
+    <div class='Answer-Frame'>
+        <div class='row'>
+            <div class='col-2'>
+                <a href='/rider1/' style="color:black"><div class=”backbutton”> &#9665; Back </div></a>
+            </div>
+            <div class='col-2'>
+                <p class ='Ellipse-8'></p>
+            </div>
+            <div class='col-6'>
+                <hgroup class='speech-bubble' style='color:white;'>
+                Where are you from? Let me know by placing a pin!
+                </hgroup>
+            </div>
+        </div>
+        <div id="map" style="width:100%;height:90%;"></div>
+        <div class='row'>
+            <div class='col-4' align="center">
+                <input onclick='deleteMarkers();' type=button value="Redo">
+            </div>
+            <div class='col-4' align="center"></div>
+            <div class='col-4' align="center">
+                <input onclick='save();' type=button value="Save">
+            </div>
+        </div>
+            
+    </div>
+    <script>
+      var map;
+      var markers = [];
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 37.775, lng: -122.419},
+          zoom: 8
+        });
+        google.maps.event.addListener(map, 'click', function(event) {
+          placeMarker(map, event.latLng);
+        });
+      }
+      function placeMarker(map, location) {
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+        markers.push(marker)
+        var infowindow = new google.maps.InfoWindow({
+          content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
+        });
+        infowindow.open(map,marker);
+      }
+      function deleteMarkers() {
+        setMapOnAll(null);
+        markers = [];
+      }
+      function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq4ZAaEj2teuoMC5z38ZJWo7B34Bn2tgo&callback=initMap">
+    </script>
+</body>
+</html>
