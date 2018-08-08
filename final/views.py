@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
 from django.contrib.auth import authenticate, login
+from django.views.generic import ListView, CreateView, UpdateView
+from django.urls import reverse_lazy
 from final.models import *
 from .forms import *
 import datetime

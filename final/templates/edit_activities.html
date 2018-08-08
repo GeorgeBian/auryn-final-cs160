@@ -179,12 +179,7 @@
 <body>
     <div class="header"></div>
     <p class="BOARD-STORIES-"> BOARD | STORIES ></p>
-		<!-- DO not touch above this!  -->
-		<!-- Edit existing activity - this should show all existing entries in the
-		Questions model and allow the driver to select one, then click submit.-->
-
 		<!-- Adding new activity-->
-
   {% block content %}
     <form action="{{earn}}" method="post" novalidate>
         {% csrf_token %}
@@ -192,7 +187,6 @@
       New Activity
       </h1></center>
         <br>
-        <div class="container mb-5">
             <div class="row">
                 {% for field in form %}
                     <div class="col-sm-6">
@@ -201,11 +195,10 @@
                     </div>
                 {% endfor %}
             </div>
-        </div>
         <center><input class="submit-button" type="submit" value="UPDATE" id = "message"/></center>
     </form>
     {% endblock %}
-
+	 <!-- DO not touch this!  -->
     <script language="JavaScript">
       function showMessage(){
             var message = document.getElementById("message").value;
@@ -215,12 +208,6 @@
         document.getElementById("block").innerHTML += "<div>item</div>";
       }
 		</script>
-
-    <!-- <p class="title">Edit Activity</p> -->
-    <div class="bar"></div>
-    <p class="title">New Activity</p>
-
-		<!--  Do not touch beyond here! -->
     <div class="navbar">
       <a href="#stories" class="active">Stories View</a>
       <a href="#dashboard">Dashboard</a>
