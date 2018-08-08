@@ -10,6 +10,15 @@ def index(request):
     return render(request, 'index.html')
 
 def map(request):
+	now = datetime.datetime.now()
+	if request.method == 'POST':
+		if 'coord' in request.POST:
+			coord = request.POST['coord'].split(',')
+			lat = coord[0]
+			lon = coord[1]
+			pin = Map_Q.create(lat, lon, now)
+			pin.save()
+			# print(Map_Q.objects.all())
 	return render(request, 'question_map.html')
 
 def rider2(request):
