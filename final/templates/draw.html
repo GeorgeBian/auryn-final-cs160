@@ -7,8 +7,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>P3 Coloring</title>
 
-  <script type="text/javascript" src="{% static 'coloring/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'coloring/vendors/paper/paper-full.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'vendor/jquery-3.2.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'vendor/paper/paper-full.min.js' %}"></script>
 
   <style type="text/css">
     #color-palette {
@@ -89,6 +89,8 @@
     window.onload = function() {
       var canvas = document.getElementById('myCanvas');
       // coloring page
+
+      /*
       var mandala = {
         item: null,
         lastClicked: null,
@@ -107,6 +109,7 @@
       };
       // your rectangle gradient interaction goes in this function
       // you may also add code outside of the function (e.g., global variables)
+
       function myGradientInteraction() {
         var tool = new paper.Tool();
         var rect = new paper.Rectangle(paper.view.center, new paper.Size(300, 400));
@@ -127,9 +130,7 @@
           };
         }
       }
-      // your custom interaction goes here!
-      // you may replace everything
-      /*
+
       var colorPicker = (
                     document.getElementById('slide'),
                     document.getElementById('picker'),
@@ -139,6 +140,8 @@
       function myCustomInteraction() {
         var tool = new paper.Tool();
         var slider = document.getElementById("myRange");
+        var myPath = new paper.Path();
+        myPath.strokeWidth = 10;
         slider.oninput = function() {
           /* var hexValue = this.value.toString(16).toUpperCase();
           var chosenColor = "#" + hexValue + hexValue + hexValue; */
@@ -155,14 +158,15 @@
           }
         };
         tool.onMouseDown = function(event) {
-          var hit = mandala.item.hitTest(event.point, {
-            tolerance: 10,
-            fill: true
-          });
-          if (hit) {
-            hit.item.fillColor = $("#display").css("background-color");
-          }
+          var start = event.point;
+          myPath.strokeColor = $("#display").css("background-color");
         }
+
+        tool.onMouseDrag = function(event) {
+            myPath.add(event.point);
+        }
+
+
       }
       // create a color palette with the given colors
        /*function createColorPalette(colors){
@@ -191,37 +195,25 @@
       function init(custom) {
         paper.setup(canvas);
         //getColorsCreatePalette();
-        paper.project.importSVG(mandala.filePath, function(item) {
-          mandala.item = item._children["design-freepik"];
-          paper.project.insertLayer(0, mandala.item);
+
           if (custom) {
             myCustomInteraction();
           } else {
             myGradientInteraction();
           }
-        });
+
       }
       // To see your myGradientInteraction version visit:
       // http://<your url>:8000/coloring/?type=gradient
       // To see your myCustomInteraction version visit:
       // http://<your url>:8000/coloring/
-      var url = window.location.href;
-      if (url.indexOf("gradient") > -1) {
-        init(false);
-      } else {
-        init(true);
-      }
+      init(true)
     }
   </script>
 </head>
 
 <body>
-  <div class="row">
-    <div class="col-sm-12">
-      <img class="center-fit" src='{% static "coloring/images/top.png" %}'>
-    </div>
-  </div>
-  <canvas id="myCanvas" width="750px" height="750px"></canvas>
+  <canvas id="myCanvas" width="768px" height="1024px"></canvas>
   <div id="color-palette"></div>
   <div id="picker"></div>
   <div id="display">
