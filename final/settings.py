@@ -55,10 +55,10 @@ ROOT_URLCONF = 'final.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/panchamyadav/Desktop/auryn-final-cs160/final'],
-        'DIRS': ['/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/templates/'],
-        'DIRS': ['/Users/karlaortiz/workspace/160/final/auryn-final-cs160/final/templates/'],
-        'DIRS': ['/Users/Gebrido/Desktop/cs160/final/auryn-final-cs160/final/templates/'],
+        # 'DIRS': ['/Users/panchamyadav/Desktop/auryn-final-cs160/final'],
+        # 'DIRS': ['/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/templates/'],
+        # 'DIRS': ['/Users/karlaortiz/workspace/160/final/auryn-final-cs160/final/templates/'],
+        # 'DIRS': ['/Users/Gebrido/Desktop/cs160/final/auryn-final-cs160/final/templates/'],
         'DIRS': ['/Users/tonyanguyen/auryn-final-cs160/final/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -125,9 +125,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    '/Users/karlaortiz/workspace/160/final/auryn-final-cs160/final/static/',
-    '/Users/panchamyadav/Desktop/auryn-final-cs160/final/static',
-    '/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/static/',
-    '/Users/Gebrido/Desktop/cs160/final/auryn-final-cs160/final/static/',
+    # '/Users/karlaortiz/workspace/160/final/auryn-final-cs160/final/static/',
+    # '/Users/panchamyadav/Desktop/auryn-final-cs160/final/static',
+    # '/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/static/',
+    # '/Users/Gebrido/Desktop/cs160/final/auryn-final-cs160/final/static/',
     '/Users/tonyanguyen/auryn-final-cs160/final/static/',
 ]
