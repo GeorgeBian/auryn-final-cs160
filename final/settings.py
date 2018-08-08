@@ -54,7 +54,7 @@ ROOT_URLCONF = 'final.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/templates/'],
+        'DIRS': ['/Users/karlaortiz/workspace/160/final/auryn-final-cs160/final/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,6 +120,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-
     '/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/static/',
 ]

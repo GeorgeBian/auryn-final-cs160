@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question</title>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+
+    #answers {
+        padding-left: 40%;
+    }
+
+    #submission-form {
+        padding-top: 40px;
+
+    }
+    
+
+    .submit-btn {
+        margin: 0 auto;
+        border-radius: 25px;
+
+    }
+
+
+    </style>
+
+
+
+</head>
+
+<body>
+
+<div class="container">
+   <!--  <center><img src="{% static 'Photo.png' %}"></center> -->
+    <center><h1>What's your favorite ice cream flavor?</h1></center>
+
+    <div id="answers">
+        <div id="submission-form">
+            <div class="question">
+                <textarea align="center" name="text" cols="25" rows="5">
+                There's many options... chocolate, vanilla, strawberry... Yum!
+                </textarea>
+
+            </div>
+        </div>
+
+        <button id="submit-btn">
+            Submit!
+        </button>
+    </div>
+    
+</div>
+
+
+</body>
+
+    
+
+
+</body>
+</html>
