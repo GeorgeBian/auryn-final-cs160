@@ -24,6 +24,8 @@ urlpatterns = [
     path('rider2/', views.rider2, name='rider2'),
     path('stories_view/', views.stories_view, name='stories_view'),
     path('edit_activities/', views.edit_activities, name='edit_activities'),
+    path('change_activity/', views.change_activity, name='change_activity'),
+    path('add_activity/', views.add_activity, name='add_activity'),
     path('rider1/',views.rider1, name='rider1'),
     path('draw/',views.draw, name='draw'),
 ]

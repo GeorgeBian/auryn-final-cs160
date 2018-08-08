@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Auryn Driver Edit Activities View</title>
+	<title>Auryn Driver Change Activities View</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
@@ -179,25 +179,27 @@
 <body>
     <div class="header"></div>
     <p class="BOARD-STORIES-"> BOARD | STORIES ></p>
-		<!-- Adding new activity-->
-  {% block content %}
-    <form action="{{earn}}" method="post" novalidate>
-        {% csrf_token %}
-        <center><h1>
-      New Activity
-      </h1></center>
-        <br>
-            <div class="row">
-                {% for field in form %}
-                    <div class="col-sm-6">
-                        <b>{{ field.label_tag }}{{ field }}
-                        <br><br>
-                    </div>
-                {% endfor %}
-            </div>
-        <center><input class="submit-button" type="submit" value="UPDATE" id = "message"/></center>
-    </form>
-    {% endblock %}
+		<!-- Changing activity-->
+
+		{% block content %}
+		        <center><h1>
+		      Your Activities
+		      </h1></center>
+		  <table border=1 frame=void rules=rows>
+		  <tr>
+		    <th><h3><center>Activity</center>
+		      </h3></th>
+		  </tr>
+		  {% for each in question %}
+		  <tr>
+		    <td><h6><center><a>{{each.question}}</center></h6></td></a>
+		     <td><h6><center><a>{{each.active_d}}</center></h6></td></a>
+		  </tr>
+		      {% endfor %}
+
+		{% endblock %}
+
+
 	 <!-- DO not touch this!  -->
     <script language="JavaScript">
       function showMessage(){
