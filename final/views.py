@@ -10,7 +10,6 @@ def rider2(request):
 def rider1(request):
 	return render(request, 'rider1.html')
 
-
 def edit_activities(request):
 	return render(request, 'edit_activities.html')
 
