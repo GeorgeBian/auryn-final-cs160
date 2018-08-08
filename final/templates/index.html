@@ -1,7 +1,8 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Auryn Driver Stories View</title>
+	<title>Auryn Homepage</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
@@ -18,6 +19,8 @@
             font-family: "Montserrat", sans-serif;
             background: white;
             max-height: 100%;
+            background:  linear-gradient(to bottom right, #5300aa 5%, #ff565c 95%);
+            text-decoration: none;
         }
         h1 {
             font-size: 60px;
@@ -54,53 +57,67 @@
             text-align: center;
         }
         .click {
-            height: 10%;
-            width: 35%;
+            height: 75px;
+            width: 200px;
             background-color: white;
-            color: #f6a888;
+            color: #5300aa;
             border-radius: 26px;
-            font-size: 36px;
+            font-size: 24px;
             vertical-align: top;
         }
         #first {
-            margin-right: 5%;
+            margin-right: 15px;
             vertical-align: top;
         }
         #second {
-            margin-left: 5%;
+            margin-left: 15px;
             vertical-align: top;
         }
         .header {
-            background-image: url("images/aurynlogo.png");
             background-position: center;
             background-repeat: no-repeat;
             text-align: center;
             position: center;
             display:block;
             width:100%;
-            margin-top: 50%;
+            margin-top: 35px;
+            margin-bottom: 10px;
             min-height:120px;
             position: running(header);
         }
+
+        a {
+            text-decoration: none;
+            color: #5300aa;
+        }
+
+        a:visited { 
+            text-decoration: none; 
+            color:#5300aa;
+        }
+
+        button:focus {outline:0;}
 	</style>
 
 </head>
 
 <body>
-    <div class="header"></div>
+    <div class="header">
+        <img src="{% static 'aurynlogo.png' %}">
+    </div>
     <h1 style="color:white"><center> Welcome!</center></h1>
     <br />
     <h2 style="color:white"><center> I'm a </center></h2>
     <div class="container">
   <div class="click" id="first">
     <div class="aligner">
-      <h4>RIDER</h4>
+      <a href="../rider1" style="text-decoration:none"><h3>RIDER</h3></a>
     </div>
   </div>
     <br />
   <div class="click" id="second">
     <div class="aligner">
-      <h4>DRIVER</h4>
+      <h3>DRIVER</h3>
       </div>
   </div>
 </div>
