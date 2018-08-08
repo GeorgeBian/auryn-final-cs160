@@ -11,14 +11,7 @@
   <script type="text/javascript" src="{% static 'vendor/paper/paper-full.min.js' %}"></script>
 
   <style type="text/css">
-    #color-palette {
-      width: 300px;
-      background-color: #f1f1f1;
-      display: flex;
-      flex-wrap: wrap;
-      position: absolute;
-      top: 0;
-    }
+
     .swatch {
       width: 24px;
       height: 24px;
@@ -140,8 +133,8 @@
       function myCustomInteraction() {
         var tool = new paper.Tool();
         var slider = document.getElementById("myRange");
-        var myPath = new paper.Path();
-        myPath.strokeWidth = 10;
+        var myPath;
+
         slider.oninput = function() {
           /* var hexValue = this.value.toString(16).toUpperCase();
           var chosenColor = "#" + hexValue + hexValue + hexValue; */
@@ -158,8 +151,9 @@
           }
         };
         tool.onMouseDown = function(event) {
-          var start = event.point;
+          myPath = new paper.Path();
           myPath.strokeColor = $("#display").css("background-color");
+          myPath.strokeWidth = 10;
         }
 
         tool.onMouseDrag = function(event) {
@@ -213,7 +207,7 @@
 </head>
 
 <body>
-  <canvas id="myCanvas" width="768px" height="1024px"></canvas>
+  <canvas id="myCanvas" width="768px" height="1100px"></canvas>
   <div id="color-palette"></div>
   <div id="picker"></div>
   <div id="display">
