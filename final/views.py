@@ -16,3 +16,6 @@ def edit_activities(request):
 
 def stories_view(request):
 	return render(request, 'stories_view.html')
+
+def draw(request):
+    return render(request, 'draw.html')

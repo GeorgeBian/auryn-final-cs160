@@ -5,20 +5,18 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>P3 Coloring</title>
+  <title> Drawing </title>
 
-  <script type="text/javascript" src="{% static 'vendor/jquery-3.2.1.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'vendor/paper/paper-full.min.js' %}"></script>
+  <script src="{% static '/vendors/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static '/vendors/jquery-ui.min.js' %}"></script>
+
+  <script type="text/javascript" src="{% static '/vendors/paper/paper-full.min.js' %}"></script>
+
+  <link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap-4.1/bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap-4.1/bootstrap.min.js' %}" />
 
   <style type="text/css">
-    #color-palette {
-      width: 300px;
-      background-color: #f1f1f1;
-      display: flex;
-      flex-wrap: wrap;
-      position: absolute;
-      top: 0;
-    }
+
     .swatch {
       width: 24px;
       height: 24px;
@@ -140,8 +138,8 @@
       function myCustomInteraction() {
         var tool = new paper.Tool();
         var slider = document.getElementById("myRange");
-        var myPath = new paper.Path();
-        myPath.strokeWidth = 10;
+        var myPath;
+
         slider.oninput = function() {
           /* var hexValue = this.value.toString(16).toUpperCase();
           var chosenColor = "#" + hexValue + hexValue + hexValue; */
@@ -158,8 +156,9 @@
           }
         };
         tool.onMouseDown = function(event) {
-          var start = event.point;
+          myPath = new paper.Path();
           myPath.strokeColor = $("#display").css("background-color");
+          myPath.strokeWidth = 10;
         }
 
         tool.onMouseDrag = function(event) {
@@ -207,13 +206,15 @@
       // http://<your url>:8000/coloring/?type=gradient
       // To see your myCustomInteraction version visit:
       // http://<your url>:8000/coloring/
-      init(true)
+      init(true);
+
     }
   </script>
 </head>
 
 <body>
-  <canvas id="myCanvas" width="768px" height="1024px"></canvas>
+  <div class="backbutton">  Save </div>
+  <canvas id="myCanvas" width="768px" height="1100px"></canvas>
   <div id="color-palette"></div>
   <div id="picker"></div>
   <div id="display">
