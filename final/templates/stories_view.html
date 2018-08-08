@@ -169,7 +169,7 @@
     <p class="BOARD-STORIES-"> BOARD | STORIES ></p>
 
 <!-- DO NOT TOUCH ABOVE THIS POINT -->
-{% block content %}
+<!--
         <center><h1>
       Answers
       </h1></center>
@@ -184,6 +184,25 @@
   <tr>
     <td><h6><center><a>{{ans.answer}}</center></h6></td></a>
      <td><h6><center><a>{{ans.timestamp}}</center></h6></td></a>
+  </tr>
+      {% endfor %}
+-->
+
+{% block content %}
+        <center><h1>
+      Answers
+      </h1></center>
+  <table border=1 frame=void rules=rows>
+  <tr>
+    <th><h3><center>Answer</center>
+      </h3></th>
+			<th><h3><center>Timestamp</center>
+	      </h3></th>
+  </tr>
+  {% for each in question %}
+  <tr>
+    <td><h6><center><a>{{each.question}}</center></h6></td></a>
+     <td><h6><center><a>{{each.date}}</center></h6></td></a>
   </tr>
       {% endfor %}
 

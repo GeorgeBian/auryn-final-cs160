@@ -10,6 +10,11 @@ class Activity(models.Model):
     active_d = models.BooleanField(default=False)
     active_q = models.BooleanField(default=False)
 
+    @classmethod
+    def create(cls, question, date):
+        created = cls(question=question, date=date)
+        return created
+
 class Driver(models.Model):
     bio = models.CharField(max_length=1000)
 

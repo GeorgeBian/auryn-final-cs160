@@ -4,6 +4,7 @@ from django.core import serializers
 from django.contrib.auth import authenticate, login
 from final.models import *
 from .forms import *
+import datetime
 
 def index(request):
     return render(request, 'index.html')
@@ -15,12 +16,26 @@ def rider1(request):
 	return render(request, 'rider1.html')
 
 def edit_activities(request):
-	return render(request, 'edit_activities.html')
+    now = datetime.datetime.now()
+    if request.method == 'POST':
+        form = ActivityEditForm(request.POST)
+        if form.is_valid():
+            send = Activity.create(form.cleaned_data['question'], now)
+            send.save()
+    else:
+        form = ActivityEditForm()
+    return render(request, 'edit_activities.html', {'form':form})
 
 def stories_view(request):
     if request.method == "GET":
-      fetched_answers = Answers.objects.all()
-    return render(request, 'templates/stories_view.html', {'answer': fetched_answers})
+      fetched_questions = Activity.objects.all()
+    return render(request, 'templates/stories_view.html', {'question': fetched_questions})
+
+# # Change back later
+# def stories_view(request):
+#     if request.method == "GET":
+#       fetched_answers = Answers.objects.all()
+#     return render(request, 'templates/stories_view.html', {'answer': fetched_answers})
 
 # Fatima's code:
 
