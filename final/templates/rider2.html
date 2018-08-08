@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Driver Story</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
+
+    <script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+
+    <style type="text/css">
+        body {
+            width: auto;
+            height: auto;
+            max-width: 100%; 
+            overflow: hidden;
+            font-family: "Montserrat", sans-serif;
+            color: white;
+            max-height: 100%;
+
+        }
+        h1 {
+            font-size: 60px;
+        }
+        h2 {
+            font-size: 45px;
+        }
+        h4{
+            font-size: 50px;
+        }
+        div {
+            box-sizing: border-box;
+        }
+
+        h3 {
+            font-size: 35px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-content: flex-start;
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            height: 1000px;
+        }{
+
+        .click:hover             background-color: #DCDCDC;
+            border-style: dotted;
+        }
+
+        .aligner {
+            display: flex;
+            align-items: center;
+            vertical-align: top;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+        .click {
+            height: 25px;
+            width: 100px;
+            background-color: white;
+            color: #fff;
+            border-radius: 26px;
+            font-size: 20px;
+            vertical-align: top;
+        }
+
+        .clickhere {
+            color: #fff;
+            font-size: 20px;
+            vertical-align: top;
+        }
+
+        #first {
+            margin-right: 15px;
+            vertical-align: top;
+        }
+        #second {
+            margin-left: 15px;
+            vertical-align: top;
+        }
+        .header {
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            position: center;
+            display:block;
+            width:100%;
+            margin-top: 35px;
+            margin-bottom: 10px;
+            min-height:120px;
+            position: running(header);
+        }
+
+        a {
+            text-decoration: none;
+            color:
+        }
+
+    .bodycolor{
+    position:absolute;
+    z-index:-1;
+    top:0;
+    left:0;
+    width:100%;
+    height:70%;
+    content:"";
+    background: linear-gradient(to right, #660066 5%, #990099 95%);
+    }
+
+    .bodytext {
+    position:absolute;
+    z-index:-1;
+    top:70%;
+    width:100%;
+    height:30%;
+    content:"";
+    color: black;
+    padding-left: 15px;
+    padding-right: 15px;
+    }
+    .profpic {
+        margin-top:5px;
+        padding-top:5px;
+        color: white;
+    }
+    </style>
+
+</head>
+
+<body>
+<div class="bodycolor">
+<a href="../rider1"><div class="clickhere"> &#9665; Back </div></a>
+<div class="container-fluid">
+<div class="profpic">
+    <center><img src="{% static 'Photo.png' %}"></center>
+</div>
+<center><h1> Brian's Story </h1></center>
+</div>
+</div>
+<div class="bodytext">
+<h3> About Me </h3>
+<h5>Hi! I'm Brian! I was born in San Jose, and I'm a native to the Bay Area. I started driving for ridesharing apps 3 years ago and I've loved it ever since. I was born with Otosclerosis, which left me hard of hearing since I was young. However, this did not affect my love for meeting new people and enjoying learning about the beauty of different cultures in the Bay. I'm excited to meet you, talk to me about anything!</h5>
+</div>
+</body>
+</html>
