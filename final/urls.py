@@ -25,4 +25,3 @@ urlpatterns = [
     path('stories_view/', views.stories_view, name='stories_view'),
     path('edit_activities/', views.edit_activities, name='edit_activities')
 ]
-

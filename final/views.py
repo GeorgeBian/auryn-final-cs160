@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.core import serializers
+from django.contrib.auth import authenticate, login
+from final.models import *
+from .forms import *
 
 def index(request):
     return render(request, 'index.html')
@@ -14,4 +18,35 @@ def edit_activities(request):
 	return render(request, 'edit_activities.html')
 
 def stories_view(request):
-	return render(request, 'stories_view.html')
+    if request.method == "GET":
+      fetched_answers = Answers.objects.all()
+    return render(request, 'templates/stories_view.html', {'answer': fetched_answers})
+
+# Fatima's code:
+
+
+# def send(request):
+#     if request.method == 'POST':
+#         form = SendForm(request.POST)
+#         if form.is_valid():
+#             send = Send.create(form.cleaned_data['name'], form.cleaned_data['email'], form.cleaned_data['phone'], form.cleaned_data['date'], form.cleaned_data['time'])
+#             send.save()
+#     else:
+#         form = SendForm()
+#     return render(request, 'life/send.html', {'form': form})
+#
+#
+# def jobs(request):
+#     if request.method == 'POST':
+#         form = JobForm(request.POST)
+#         if form.is_valid():
+#             jobs = Jobs.create(form.cleaned_data['job_title'], form.cleaned_data['description'])
+#             jobs.save()
+#     else:
+#         form = JobForm()
+#     return render(request, 'life/jobs.html', {'form': form})
+#
+# def schedule(request):
+#   if request.method == "GET":
+#     all_groups = Send.objects.all()
+#   return render(request, 'life/schedule.html', {'schedule_listing': all_groups})

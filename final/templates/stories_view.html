@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -166,12 +167,30 @@
 <body>
     <div class="header"></div>
     <p class="BOARD-STORIES-"> BOARD | STORIES ></p>
-    <p class="timestamp">TODAY, 4PM</p>
-    <div class="Rectangle-174"></div>
-    <p class="timestamp">TODAY, 3:45PM</p>
-    <div class="Rectangle-183"></div>
-    <p class="timestamp">TODAY, 3:00PM</p>
-    <div class="Rectangle-183"></div>
+
+<!-- DO NOT TOUCH ABOVE THIS POINT -->
+{% block content %}
+        <center><h1>
+      Answers
+      </h1></center>
+  <table border=1 frame=void rules=rows>
+  <tr>
+    <th><h3><center>Answer</center>
+      </h3></th>
+			<th><h3><center>Timestamp</center>
+	      </h3></th>
+  </tr>
+  {% for ans in answers %}
+  <tr>
+    <td><h6><center><a>{{ans.answer}}</center></h6></td></a>
+     <td><h6><center><a>{{ans.timestamp}}</center></h6></td></a>
+  </tr>
+      {% endfor %}
+
+{% endblock %}
+
+<!-- DO NOT TOUCH BELOW THIS POINT -->
+
     <div class="navbar">
       <a href="#stories" class="active">Stories View</a>
       <a href="#dashboard">Dashboard</a>

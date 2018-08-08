@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    'final',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'final.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/templates/'],
+        'DIRS': ['/Users/panchamyadav/Desktop/auryn-final-cs160/final'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,5 +122,5 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
 
-    '/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/static/',
+    '/Users/panchamyadav/Desktop/auryn-final-cs160/final/static',
 ]
