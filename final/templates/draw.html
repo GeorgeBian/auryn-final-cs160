@@ -84,6 +84,22 @@
   </style>
 
   <script type="text/javascript" canvas="canvas">
+    var downloadAsSVG = function (fileName) {
+
+      if(!fileName) {
+        fileName = "paperjs_example.svg"
+      }
+
+      var url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({asString:true}));
+
+      var link = document.createElement("a");
+      link.download = fileName;
+      link.href = url;
+      link.click();
+      console.log("success");
+      console.log(url);
+      console.log(link);
+    }
     window.onload = function() {
       var canvas = document.getElementById('myCanvas');
       // coloring page
@@ -207,13 +223,17 @@
       // To see your myCustomInteraction version visit:
       // http://<your url>:8000/coloring/
       init(true);
+      $(".btn-save").click(function(event) {
+        console.log("1");
+        downloadAsSVG();
+      });
 
     }
   </script>
 </head>
 
 <body>
-  <div class="backbutton">  Save </div>
+  <button type="button" class="btn btn-save"> Save </button>
   <canvas id="myCanvas" width="768px" height="1100px"></canvas>
   <div id="color-palette"></div>
   <div id="picker"></div>
