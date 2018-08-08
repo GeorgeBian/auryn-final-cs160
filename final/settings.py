@@ -131,10 +131,8 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
 
-<<<<<<< HEAD
-    '/Users/panchamyadav/Desktop/auryn-final-cs160/final/static',
-=======
+    '/Users/panchamyadav/Desktop/auryn-final-cs160/final/static'
     #'/Users/Maryam Ibrahim/Documents/Final160/auryn-final-cs160/final/static/',
-    '/Users/Gebrido/Desktop/cs160/final/auryn-final-cs160/final/static/',
->>>>>>> cc8ef33a65a2a689b1ef51d136ee42606a74e1f1
+    # '/Users/Gebrido/Desktop/cs160/final/auryn-final-cs160/final/static/',
+
 ]

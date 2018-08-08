@@ -30,10 +30,12 @@ def edit_activities(request):
     return render(request, 'edit_activities.html', {'form':form})
 
 def stories_view(request):
-<<<<<<< HEAD
     if request.method == "GET":
       fetched_questions = Activity.objects.all()
     return render(request, 'templates/stories_view.html', {'question': fetched_questions})
+
+def draw(request):
+    return render(request, 'draw.html')
 
 # # Change back later
 # def stories_view(request):
@@ -69,12 +71,3 @@ def stories_view(request):
 #   if request.method == "GET":
 #     all_groups = Send.objects.all()
 #   return render(request, 'life/schedule.html', {'schedule_listing': all_groups})
-=======
-	return render(request, 'stories_view.html')
-<<<<<<< HEAD
-
-def draw(request):
-    return render(request, 'draw.html')
-=======
->>>>>>> e10cbc197d2ecdd43a78ef3941a06147494eaaa2
->>>>>>> cc8ef33a65a2a689b1ef51d136ee42606a74e1f1
