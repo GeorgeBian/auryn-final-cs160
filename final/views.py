@@ -74,6 +74,7 @@ def add_activity(request):
     else:
         form = ActivityEditForm()
     return render(request, 'add_activity.html', {'form':form})
+<<<<<<< HEAD
 
 
 def sent_add_activity(request):
@@ -81,16 +82,24 @@ def sent_add_activity(request):
       fetched_questions = Activity.objects.all()
     return render(request, 'acitivites.html', {'question': fetched_questions})
 
+=======
+>>>>>>> 917b4d39aff50d7c0de4259e94937d4d0a0def9b
 
 def stories_view(request):
     if request.method == "GET":
       fetched_questions = Activity.objects.all()
+<<<<<<< HEAD
     return render(request, 'stories_view.html', {'question': fetched_questions})
+=======
+      maps = Map_Q.objects.all()
+    return render(request, 'stories_view.html', {'question': fetched_questions, 'map':maps})
+>>>>>>> 917b4d39aff50d7c0de4259e94937d4d0a0def9b
 
 def change_activity(request):
     if request.method == "GET":
       fetched_questions = Activity.objects.all()
     return render(request, 'change_activity.html', {'question': fetched_questions})
+<<<<<<< HEAD
 
 def change_bio(request):
     if request.method == "GET":
@@ -101,7 +110,17 @@ def printfordriver(request):
 	if request.method == "GET":
 		fetched_questions = Activity.objects.all()
 	return render(request, 'change_activity.html', {'question': fetched_questions})
+=======
+>>>>>>> 917b4d39aff50d7c0de4259e94937d4d0a0def9b
 
 def draw(request):
     return render(request, 'draw.html')
 
+<<<<<<< HEAD
+=======
+def driverview(request):
+    return render(request, 'driverview.html')
+
+def activities(request): 
+    return render(request, 'activities.html')
+>>>>>>> 917b4d39aff50d7c0de4259e94937d4d0a0def9b

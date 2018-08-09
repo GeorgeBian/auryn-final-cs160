@@ -87,8 +87,8 @@
     var downloadAsSVG = function (fileName) {
 
       if(!fileName) {
-        fileName = "paperjs_example.svg"
-      }
+        fileName = "myDrawing.svg"
+
 
       var url = "data:image/svg+xml;utf8," + encodeURIComponent(paper.project.exportSVG({asString:true}));
 
@@ -100,6 +100,7 @@
       console.log(url);
       console.log(link);
     }
+  }
     window.onload = function() {
       var canvas = document.getElementById('myCanvas');
       // coloring page
@@ -233,7 +234,7 @@
 </head>
 
 <body>
-  <button type="button" class="btn btn-save"> Save </button>
+  <a href="/rider1/"> <button type="button" class="btn btn-save"> Save </button> </a>
   <canvas id="myCanvas" width="768px" height="1100px"></canvas>
   <div id="color-palette"></div>
   <div id="picker"></div>
