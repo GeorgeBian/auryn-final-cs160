@@ -8,3 +8,9 @@ class ActivityEditForm(forms.Form):
 
 class RiderAnswerForm(forms.Form):
   answer = forms.CharField(label = "Type Here:", max_length = 1000)
+
+class QAEditForm(forms.Form):
+  youranswer = forms.CharField(label = "Your Answer Here:", max_length = 3000)
+
+class DriverForm(forms.Form):
+  bio = forms.CharField(label="Edit Your Bio Here:", max_length = 1000)

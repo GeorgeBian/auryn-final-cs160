@@ -15,13 +15,32 @@ class Activity(models.Model):
         created = cls(question=question, date=date)
         return created
 
+class QA(models.Model):
+    youranswer = models.CharField(max_length = 3000)
+
+    @classmethod
+    def create(cls, youranswer):
+        created = cls(youranswer=youranswer)
+        return created
+
+
 class Driver(models.Model):
     bio = models.CharField(max_length=1000)
+
+    @classmethod
+    def create(cls, bio):
+        created = cls(bio=bio)
+        return created
 
 class Answers(models.Model):
     q_id = models.ForeignKey('Activity', on_delete=models.CASCADE)
     answer = models.CharField(max_length=1000)
     timestamp = models.DateTimeField()
+
+    @classmethod
+    def create(cls, answer):
+        created = cls(answer=answer)
+        return created
 
 class Files(models.Model):
     q_id = models.ForeignKey('Activity', on_delete=models.CASCADE)

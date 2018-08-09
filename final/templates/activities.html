@@ -1,174 +1,9 @@
 
-
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-
-	<title>Auryn Driver Activities View</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
-
-	<script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
-	<script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
-
-	<style type="text/css">
-        body {
-            width: auto;
-            height: auto;
-            max-width: 100%; overflow: hidden;
-            font-family: "Montserrat", sans-serif;
-            background: white;
-            max-height: 100%;
-
-        }
-        h1 {
-            font-size: 60px;
-        }
-        h2 {
-            font-size: 45px;
-        }
-        h4{
-            font-size: 50px;
-        }
-        div {
-            box-sizing: border-box;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-content: flex-start;
-            -webkit-flex-flow: row wrap;
-            flex-flow: row wrap;
-            height: 1000px;
-        }
-        .click:hover {
-            background-color: #DCDCDC;
-            border-style: dotted;
-        }
-
-        .aligner {
-            display: flex;
-            align-items: center;
-            vertical-align: top;
-            justify-content: center;
-            height: 100%;
-            text-align: center;
-        }
-        .click {
-            height: 10%;
-            width: 35%;
-            background-color: white;
-            color: #f6a888;
-            border-radius: 26px;
-            font-size: 36px;
-            vertical-align: top;
-        }
-        #first {
-            margin-right: 5%;
-            vertical-align: top;
-        }
-        #second {
-            margin-left: 5%;
-            vertical-align: top;
-        }
-        .header {
-            background-image: url("images/auryn2.png");
-            background-position: center;
-            background-repeat: no-repeat;
-            text-align: center;
-            position: center;
-            display:block;
-            width:100%;
-            margin-top: 10%;
-            min-height:120px;
-            position: running(header);
-        }
-
-        .BOARD-STORIES- {
-          width: 703px;
-          height: 94px;
-          font-size: 48px;
-          font-weight: normal;
-          font-style: normal;
-          padding-left: 86px;
-          font-stretch: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          color: #000000;
-        }
-        .title {
-          width:800px;
-          height: 46px;
-          font-size: 40px;
-          font-weight: normal;
-          font-style: normal;
-          padding-left: 86px;
-          font-stretch: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          color: #000000;
-        }
-        .bar {
-					padding: 10px;
-					width: 800px;
-				  height: 140px;
-				  border-radius: 30px;
-				  background-color: #f5f5f5;
-					margin-left: 86px;
-        }
-				.about-me {
-					padding: 20px;
-					width: 800px;
-				  height: 400px;
-				  border-radius: 30px;
-				  background-color: #f5f5f5;
-					font-size: 30px;
-					margin-left: 86px;
-        }
-
-          .Rectangle-168 {
-            width: 1308px;
-            height: 133px;
-            border-radius: 4px;
-            box-shadow: 2px 9px 50px 0 rgba(0, 0, 0, 0.25);
-            background-color: #fffefe;
-            border: solid 1px #c4c4c4;
-          }
-
-
-          .navbar {
-            overflow: hidden;
-            border-radius: 4px;
-            box-shadow: 2px 9px 50px 0 rgba(0, 0, 0, 0.25);
-            background-color: #fffefe;
-            border: solid 1px #c4c4c4;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-          }
-
-          .navbar a {
-            float: left;
-            display: block;
-            border-radius: 4px;
-            box-shadow: 2px 9px 50px 0 rgba(0, 0, 0, 0.25);
-            background-color: #fffefe;
-            border: solid 1px #c4c4c4;
-            text-align: center;
-            padding: 30px 56px;
-            text-decoration: none;
-            font-size: 40px;
-          }
-
-          .navbar a:hover {
-            color: black;
-          }
-
-	</style>
-
-  <title>Edit Activities</title>
+  <title> Activities</title>
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
   <script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
@@ -413,19 +248,9 @@
             Question
           </div>
           <div class="row dash-content">
-            What's your favorite ice cream flavor?
-          </div>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="row dash-description">
-            Drawing
-          </div>
-          <div class="row dash-content">
-            Draw me someone you love!
+            <a href="../questionview" style="text-decoration:none">
+            {{ question.last.question }}
+            </a>
           </div>
         </div>
       </div>
@@ -436,7 +261,9 @@
             Biography
           </div>
           <div class="row dash-content">
-            Hi there! I'm Brian. I'm hard of hearing, but it doesn't mean we can't communicate! A little bit about me: I hail from Sacramento and, I happen to be a huge fan of anything chocolate. During my spare time, you can find me rock climbing, drawing, or driving for rideshare. Feel free to leave a note!
+            <a href="../bio" style="text-decoration:none">
+            {{ driverbio.last.bio }}
+          </a>
           </div>
         </div>
       </div>

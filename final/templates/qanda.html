@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Question and Answer Rider View</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
+
+    <script src="{% static '/vendors/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static '/vendors/jquery-ui.min.js' %}"></script>
+
+  <style type="text/css">
+        body {
+            width: auto;
+            height: auto;
+            max-width: 100%; overflow: hidden;
+            font-family: "Montserrat", sans-serif;
+            background: white;
+            max-height: 100%;
+
+        }
+        h1 {
+            font-size: 60px;
+        }
+        h2 {
+            font-size: 45px;
+        }
+        h4{
+            font-size: 50px;
+        }
+        div {
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-content: flex-start;
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            height: 1000px;
+        }
+        .click:hover {
+            background-color: #DCDCDC;
+            border-style: dotted;
+        }
+
+        .aligner {
+            display: flex;
+            align-items: center;
+            vertical-align: top;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+        .click {
+            height: 10%;
+            width: 35%;
+            background-color: white;
+            color: #f6a888;
+            border-radius: 26px;
+            font-size: 36px;
+            vertical-align: top;
+        }
+        #first {
+            margin-right: 5%;
+            vertical-align: top;
+        }
+        #second {
+            margin-left: 5%;
+            vertical-align: top;
+        }
+        .header {
+            background-image: url("images/aurynlogo.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            position: center;
+            display:block;
+            width:100%;
+            margin-top: 50%;
+            min-height:120px;
+            position: running(header);
+        }
+        .Answer-Frame {
+          width: 968px;
+          height: 616px;
+          background-color: #ffffff;
+        }
+        .Ellipse-8 {
+          width: 71px;
+          height: 71px;
+          background-color: #e3e1e1;
+          clip-path: circle(2rem);
+        }
+        .speech-bubble {
+            position: relative;
+            height: 60%;
+            width: 90%;
+            background: #964ba9;
+            border-radius: .4em;
+            text-align: center;
+        }
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 20px solid transparent;
+            border-right-color: #964ba9;
+            border-left: 0;
+            border-bottom: 0;
+            margin-top: -10px;
+            margin-left: -20px;
+        }
+        #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+  </style>
+
+</head>
+
+<body>
+    <div class='Answer-Frame'>
+        <div class='row'>
+            <div class='col-2'>
+                <a href='/rider1/' style="color:black"><div class=”backbutton”> &#9665; Back </div></a>
+            </div>
+            <div class='col-2'>
+                <p class ='Ellipse-8'></p>
+            </div>
+            <div class='col-6'>
+                <hgroup class='speech-bubble' style='color:white;'>
+                    {{ question.last.question }}
+                </hgroup>
+            </div>
+            <!-- block content !-->
+            
+    <form action="{{earn}}" method="post" novalidate>
+        {% csrf_token %}
+        <br>
+        <div class="container mb-5">
+            <div class="row">
+                {% for field in form  %}
+                    <div class="col-sm-6">
+                        <b>{{ field.label_tag }}{{ field }} 
+                        <br><br>
+                    </div>
+                {% endfor %}
+                <!-- block content !-->
+            </div>  
+        </div>
+        <center><input type="submit" value="Submit" id = "message"/></center>
+    </form>
+        </div>
+        <div id="map" style="width:100%;height:90%;"></div>
+        <div class='row'>
+        </div>
+
+    </div>
+
+    <script>
+      function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+      }
+      var csrftoken = getCookie('csrftoken');
+      var URL = "{% url 'map' %}";
+
+      function save() {
+        var m = markers[0];
+        var location = m.position.lat().toString() + ',' + m.position.lng().toString();
+        var data = {
+            'coord': location, 
+            'csrfmiddlewaretoken': csrftoken
+        };
+        $.post(URL, data);
+      }
+    </script>
+</body>
+</html>
