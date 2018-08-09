@@ -119,7 +119,7 @@
             margin-top: -10px;
             margin-left: -20px;
         }
-        #map {
+      #map {
         height: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
@@ -233,13 +233,17 @@
       var URL = "{% url 'map' %}";
 
       function save() {
-        var m = markers[0];
-        var location = m.position.lat().toString() + ',' + m.position.lng().toString();
-        var data = {
-            'coord': location, 
-            'csrfmiddlewaretoken': csrftoken
-        };
-        $.post(URL, data);
+        for (var i = 0; i < markers.length; i++) {
+          var m = markers[i];
+          var location = m.position.lat().toString() + ',' + m.position.lng().toString();
+          var data = {
+              'coord': location, 
+              'csrfmiddlewaretoken': csrftoken
+          };
+          $.post(URL, data);
+          window.location="{% url 'rider1' %}";
+        }
+        
       }
     </script>
     <script async defer
