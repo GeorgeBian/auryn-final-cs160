@@ -35,7 +35,6 @@
         div {
             box-sizing: border-box;
         }
-
         .container {
             display: flex;
             justify-content: center;
@@ -43,12 +42,12 @@
             -webkit-flex-flow: row wrap;
             flex-flow: row wrap;
             height: 1000px;
+						margin-top: 15px;
         }
         .click:hover {
             background-color: #DCDCDC;
             border-style: dotted;
         }
-
         .aligner {
             display: flex;
             align-items: center;
@@ -81,41 +80,39 @@
             position: center;
             display:block;
             width:100%;
-            margin-top: 35px;
+            margin-top: 150px;
             margin-bottom: 10px;
             min-height:120px;
             position: running(header);
         }
-
         a {
             text-decoration: none;
             color: #5300aa;
         }
-
         a:visited {
             text-decoration: none;
             color:#5300aa;
         }
-
         button:focus {outline:0;}
 	</style>
 
 </head>
 
 <body>
+
     <div class="header">
         <img src="{% static 'aurynlogo.png' %}">
     </div>
     <h1 style="color:white"><center> Welcome!</center></h1>
     <br />
     <h2 style="color:white"><center> I'm a </center></h2>
-    <div class="container">
+	   <div class="container">
   <div class="click" id="first">
     <div class="aligner">
       <a href="../rider1" style="text-decoration:none"><h3>RIDER</h3></a>
     </div>
   </div>
-    <br />
+    <br/>
   <div class="click" id="second">
     <div class="aligner">
       <h3>DRIVER</h3>
