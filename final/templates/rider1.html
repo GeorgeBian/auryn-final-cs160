@@ -13,17 +13,25 @@
 	<script src="{% static '/vendor/jquery-ui/jquery-ui.min.js' %}"></script>
 	<style type="text/css">
 
+	html, body { margin: 0; padding: 0; height: 100%; width: 100%;  }
+
   .about-panel {
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
 		background-color: rgba(246, 246, 246, 0.74);
+		width: 1024px;
+		height: 768px;
   }
 	.profile {
-	margin-left: 10px;
+	margin: 65px;
   width: 172px;
   height: 172px;
+	position:relative;
 	}
+
 	.Introduction {
+	margin: 20px;
+	padding: 30px;
   width: 243px;
   height: 47px;
   font-family: Roboto;
@@ -40,8 +48,6 @@
   width: 269px;
   height: 18px;
   font-family: Roboto;
-  font-size: 18px;
-  font-weight: bold;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
@@ -61,6 +67,7 @@
   line-height: normal;
   letter-spacing: normal;
   color: #ffffff;
+	margin: 33px;
   }
 
 	.interaction {
@@ -72,10 +79,25 @@
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+	margin-top:113px;
+		margin-left:113px;
+			margin-right:113px;
+
+	text-align: center;
+}
+
+.message {
+	margin-top: 55px;
+}
+
+.icons {
+	margin-top: 67px;
 }
 	.side {
 		background-color: rgba(246, 246, 246, 0.74);
 	}
+
+
 	</style>
 
 </head>
@@ -88,7 +110,7 @@
 					<img src="{% static 'images/Photo.png' %}">
 				</div>
 				<div class="introduction">
-					<h2> Hi, I'm Brian! </h2>
+					<h1> Hi, I'm Brian! </h1>
 				</div>
 				<div class="aboutMe">
 					<h3> About Me </h3>
@@ -96,31 +118,26 @@
 					</p>
 				</div>
 				<div class="story">
-					<img src="{% static 'images/MyStory-Button.png' %}">
+					<a href="/rider2/"> <img src="{% static 'images/MyStory-Button.png' %}"> </a>
 				</div -->
 			</div>
 			<div class = "main col-md-8">
 				<div class="interaction">
-					<h3> Interact with me!</h3>
-					<p> I may be hard of hearing, but it doesn’t mean we can’t communicate! Answer some questons or leave me a doodle. It’ll make my day!
-					</p>
+					<h1> Interact with me!</h1>
 				</div>
+				<div class="message">
+				<p> I may be hard of hearing, but it doesn’t mean we can’t communicate! Answer some questons or leave me a doodle. It’ll make my day!
+				</p>
+			</div>
 				<div class="icons row">
 					<div class="answer col-md-6">
-						<img src="{% static 'images/Answer.png' %}">
+						<a href="/map/"> <img src="{% static 'images/Answer.png' %}"> </a>
 					</div>
 					<div class="answer col-md-6">
-						<img src="{% static 'images/draw.png' %}">
+						<a href="/draw/"> <img src="{% static 'images/draw.png' %}"> </a>
 					</div>
 				</div>
-				<div class="tip row">
-					<div class="answer col-md-6">
-						<img src="{% static 'images/Tip-Button.png' %}">
-					</div>
-					<div class="answer col-md-6">
-						<img src="{% static 'images/Donate-Button.png' %}">
-					</div>
-				</div>
+
 			</div>
 		</div>
 		</div>

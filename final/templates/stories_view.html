@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,7 @@
     font-family: Arciform;
     src: url("Arciform.otf") format("opentype");
 }
-  
+
   .container-fluid {
     font-family: 'Roboto', sans-serif;
     background-color: #FDFBFF;
@@ -33,7 +34,7 @@
   .row {
     margin: 0 auto;
   }
- 
+
     .navbar {
     background-color: #fffefe;
     bottom: -16px;
@@ -204,6 +205,57 @@
 </head>
 
 <body>
+    <div class="header"></div>
+    <p class="BOARD-STORIES-"> BOARD | STORIES ></p>
+
+<!-- DO NOT TOUCH ABOVE THIS POINT -->
+<!--
+        <center><h1>
+      Answers
+      </h1></center>
+  <table border=1 frame=void rules=rows>
+  <tr>
+    <th><h3><center>Answer</center>
+      </h3></th>
+			<th><h3><center>Timestamp</center>
+	      </h3></th>
+  </tr>
+  {% for ans in answers %}
+  <tr>
+    <td><h6><center><a>{{ans.answer}}</center></h6></td></a>
+     <td><h6><center><a>{{ans.timestamp}}</center></h6></td></a>
+  </tr>
+      {% endfor %}
+-->
+<!--
+{% block content %}
+        <center><h1>
+      Answers
+      </h1></center>
+  <table border=1 frame=void rules=rows>
+  <tr>
+    <th><h3><center>Answer</center>
+      </h3></th>
+			<th><h3><center>Timestamp</center>
+	      </h3></th>
+  </tr>
+  {% for each in question %}
+  <tr>
+    <td><h6><center><a>{{each.question}}</center></h6></td></a>
+     <td><h6><center><a>{{each.date}}</center></h6></td></a>
+  </tr>
+      {% endfor %}
+
+{% endblock %}
+
+-->
+
+<!-- DO NOT TOUCH BELOW THIS POINT -->
+
+    <div class="navbar">
+      <a href="#stories" class="active">Stories View</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#settings">Settings</a>
   <div class="container-fluid">
 
       <div class="header">
@@ -226,9 +278,9 @@
 
       <div class="row">
           <div class="story col-xs-12">
-            
+
               <div class="story-image">
-                {% static 'images/Photo.png' %}
+
                 <img src="{% static 'images/aurynblacklogo.png' %} " width="100" height="100" alt="Story-Img-Filelr">
               </div>
               <!-- <div class="img-text">
@@ -262,7 +314,6 @@
         </div>
 
       </div>
-
       
       <div class="row">
         <div class="answers">
@@ -280,7 +331,7 @@
       </div>
         
       <div id="map">{{ map.last.lat }}, {{ map.last.lon }}</div>
-   
+
     <div class="row">
       <div class="navbar col-xs-12">
           <a class="nav-img" href="stories_view.html">
@@ -316,6 +367,7 @@
   </script>
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq4ZAaEj2teuoMC5z38ZJWo7B34Bn2tgo&callback=initMap">
+
   </script>
 </body>
 </html>
