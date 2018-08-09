@@ -8,10 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
-	<script
-      src="https://code.jquery.com/jquery-3.3.1.js"
-      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-      crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
+
+    <script src="{% static '/vendors/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static '/vendors/jquery-ui.min.js' %}"></script>
 
 	<style type="text/css">
         body {
@@ -170,8 +170,9 @@
                 <input onclick='save();' type=button value="Save">
             </div>
         </div>
-            
+
     </div>
+
     <script>
       var map;
       var markers = [];
@@ -203,6 +204,42 @@
         for (var i = 0; i < markers.length; i++) {
           markers[i].setMap(map);
         }
+      }
+      function savetest() {
+        for (var i = 0; i < markers.length; i++) {
+          var m = markers[i];
+          var now = new Date();
+          var pin = Map_Q(lat=m.position.lat().toString(), lon=m.position.lng().toString(), timestamp=now);
+          pin.save();
+          console.log(pin.now);
+        }
+      }
+      function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+      }
+      var csrftoken = getCookie('csrftoken');
+      var URL = "{% url 'map' %}";
+
+      function save() {
+        var m = markers[0];
+        var location = m.position.lat().toString() + ',' + m.position.lng().toString();
+        var data = {
+            'coord': location, 
+            'csrfmiddlewaretoken': csrftoken
+        };
+        $.post(URL, data);
       }
     </script>
     <script async defer

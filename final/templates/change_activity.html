@@ -2,17 +2,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Question Settings Dashboard</title>
+	<title>Auryn Driver Change Activities View</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
 
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-  <style type="text/css">
-  @font-face {
+	<script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
+	<script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
+
+	<style type="text/css">
+    @font-face {
     font-family: Arciform;
     src: url("Arciform.otf") format("opentype");
 }
@@ -189,73 +189,45 @@
     font-size: 12px;
   }
 
-  .add-btn {
-    box-shadow: 5px 5px 15px #E8E8E8;
-    float: right;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 23px;
-    width: 30px;
-    height: 30px;
-    background-color: lightgreen;
-    color: white;
-    font-weight: 700px;
-  }
-  </style>
-
+	</style>
 </head>
-
 <body>
-  <div class="container-fluid">
+    <div class="header"></div>
 
-      <div class="col-xs-12 header">
-         <img src="images/auryntext.png" width="120" height="55">
-         <div class="add-btn" href="add_activity.html">
-            +
-          </div>
-      </div>
+    
+    <p class="BOARD-STORIES-"> BOARD | STORIES ></p>
+		<!-- Changing activity-->
+
+		{% block content %}
+		        <center><h1>
+		      Your Activities
+		      </h1></center>
+		  <table border=1 frame=void rules=rows>
+		  <tr>
+		    <th><h3><center>Activity</center>
+		      </h3></th>
+		  </tr>
+		  {% for each in question %}
+		  <tr>
+		    <td><h6><center><a>{{each.question}}</center></h6></td></a>
+		     <td><h6><center><a>{{each.active_d}}</center></h6></td></a>
+		  </tr>
+		      {% endfor %}
+
+		{% endblock %}
 
 
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="row dash-header">
-          Settings
-          </div>
-
-          <div class="row dash-description">
-            Question
-          </div>
-          <div class="row dash-content">
-            What's your favorite ice cream flavor?
-          </div>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="row dash-description">
-            Drawing
-          </div>
-          <div class="row dash-content">
-            Draw me someone you love!
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="row dash-description">
-            Biography
-          </div>
-          <div class="row dash-content">
-            Hi there! I'm Brian. I'm hard of hearing, but it doesn't mean we can't communicate! A little bit about me: I hail from Sacramento and, I happen to be a huge fan of anything chocolate. During my spare time, you can find me rock climbing, drawing, or driving for rideshare. Feel free to leave a note!
-          </div>
-        </div>
-      </div>
-
-   
-    <div class="row">
+	 <!-- DO not touch this!  -->
+    <script language="JavaScript">
+      function showMessage(){
+            var message = document.getElementById("message").value;
+            display.innerHTML= message;
+        }
+      function addItem() {
+        document.getElementById("block").innerHTML += "<div>item</div>";
+      }
+		</script>
+     <div class="row">
       <div class="navbar col-xs-12">
           <a class="nav-img" href="stories_view.html">
             <img src="images/book.svg" width="30" height="30" alt="Story">
@@ -263,18 +235,10 @@
           <a class="nav-img" href="driverview.html">
             <img src="images/aurynblacklogo.png" width="50" height="27" alt="Home">
           </a>
-          <a class="nav-img" href="activities.html">
+          <a class="nav-img" href="settings_view.html">
             <img src="images/gear.svg" width="30" height="30" alt="Settings">
           </a>
       </div>
     </div>
-
-
-  </div>
-
-
-  <script>
-    
-  </script>
 </body>
 </html>
