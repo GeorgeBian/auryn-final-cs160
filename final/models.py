@@ -29,8 +29,7 @@ class Files(models.Model):
     timestamp = models.DateTimeField()
 
 class Map_Q(models.Model):
-    q_id = models.ForeignKey('Activity', on_delete=models.CASCADE)
-
+    #q_id = models.ForeignKey('Activity', on_delete=models.CASCADE)
     lat = models.CharField(max_length=100)
     lon = models.CharField(max_length=100)
     timestamp = models.DateTimeField()
