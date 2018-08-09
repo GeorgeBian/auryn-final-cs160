@@ -63,3 +63,9 @@ def change_activity(request):
 
 def draw(request):
     return render(request, 'draw.html')
+
+def driverview(request):
+    return render(request, 'driverview.html')
+
+def activities(request): 
+    return render(request, 'activities.html')

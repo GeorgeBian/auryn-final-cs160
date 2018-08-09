@@ -28,4 +28,8 @@ urlpatterns = [
     path('add_activity/', views.add_activity, name='add_activity'),
     path('rider1/',views.rider1, name='rider1'),
     path('draw/',views.draw, name='draw'),
+
+    path('activities/', views.activities, name='activities'),
+    path('driverview/', views.driverview, name='driverview'),
+
 ]

@@ -1,4 +1,4 @@
-
+{% load static %}
 
 <!DOCTYPE html>
 <html>
@@ -6,8 +6,6 @@
 	<title>Driver Dashboard</title>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
-	<script src="{% static '/vendors/jquery-ui/jquery-ui.min.js' %}"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -215,18 +213,6 @@
     </div>
 
     <div class="row justify-content-xs-center">
-      <div class="col-xs-5 col-xs-5 dash">
-        <img src="images/reacts.png" width="30" height="30" alt="reactions"> Reactions
-      </div>
-      <div class="col-xs-5 col-xs-5 dash">
-        <img src="images/tips.png" width="30" height="30" alt="tips"> Tips
-        <img src="images/reacts.png" width="30" height="30" alt="engaged"> Reactions
-      </div>
-      <div class="col-xs-5 col-xs-5 dash">
-        <img src="images/tips.png" width="30" height="30" alt="engaged"> Tips
-      </div>
-    </div>
-    <div class="row justify-content-xs-center">
       <nav class="navbar fixed-bottom navbar-light bg-light navbar-expand-xs">
         <a class="nav-img">
           <img src="images/book.svg" width="30" height="30" alt="Story">
@@ -248,7 +234,7 @@
           <a class="nav-img" href="driverview.html">
             <img src="images/aurynblacklogo.png" width="50" height="27" alt="Home">
           </a>
-          <a class="nav-img" href="settings_view.html">
+          <a class="nav-img" href="activities.html">
             <img src="images/gear.svg" width="30" height="30" alt="Settings">
           </a>
       </div>
