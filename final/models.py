@@ -19,17 +19,22 @@ class Driver(models.Model):
     bio = models.CharField(max_length=1000)
 
 class Answers(models.Model):
-    q_id = models.CharField(max_length=30)
+    q_id = models.ForeignKey('Activity', on_delete=models.CASCADE)
     answer = models.CharField(max_length=1000)
     timestamp = models.DateTimeField()
 
 class Files(models.Model):
-    q_id = models.CharField(max_length=30)
+    q_id = models.ForeignKey('Activity', on_delete=models.CASCADE)
     file = models.FileField(upload_to='uploads/')
     timestamp = models.DateTimeField()
 
-class Map(models.Model):
-    q_id = models.CharField(max_length=30)
+class Map_Q(models.Model):
+    # q_id = models.ForeignKey('Activity', on_delete=models.CASCADE)
     lat = models.CharField(max_length=100)
-    long = models.CharField(max_length=100)
+    lon = models.CharField(max_length=100)
     timestamp = models.DateTimeField()
+
+    @classmethod
+    def create(cls, lat, lon, date):
+        created = cls(lat=lat, lon=lon, timestamp=date)
+        return created
