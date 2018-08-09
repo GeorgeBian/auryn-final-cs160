@@ -1,8 +1,12 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Stories</title>
+
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
   <script src="{% static '/vendors/jquery/jquery-3.3.1.min.js' %}"></script>
@@ -18,7 +22,7 @@
     font-family: Arciform;
     src: url("Arciform.otf") format("opentype");
 }
-  
+
   .container-fluid {
     font-family: 'Roboto', sans-serif;
     background-color: #FDFBFF;
@@ -30,7 +34,7 @@
   .row {
     margin: 0 auto;
   }
- 
+
     .navbar {
     background-color: #fffefe;
     bottom: -16px;
@@ -187,11 +191,71 @@
     color: gray;
     font-size: 12px;
   }
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
   </style>
 
 </head>
 
 <body>
+    <div class="header"></div>
+    <p class="BOARD-STORIES-"> BOARD | STORIES ></p>
+
+<!-- DO NOT TOUCH ABOVE THIS POINT -->
+<!--
+        <center><h1>
+      Answers
+      </h1></center>
+  <table border=1 frame=void rules=rows>
+  <tr>
+    <th><h3><center>Answer</center>
+      </h3></th>
+			<th><h3><center>Timestamp</center>
+	      </h3></th>
+  </tr>
+  {% for ans in answers %}
+  <tr>
+    <td><h6><center><a>{{ans.answer}}</center></h6></td></a>
+     <td><h6><center><a>{{ans.timestamp}}</center></h6></td></a>
+  </tr>
+      {% endfor %}
+<<<<<<< HEAD
+
+
+=======
+-->
+<!--
+>>>>>>> 917b4d39aff50d7c0de4259e94937d4d0a0def9b
+{% block content %}
+        <center><h1>
+      Answers
+      </h1></center>
+  <table border=1 frame=void rules=rows>
+  <tr>
+    <th><h3><center>Answer</center>
+      </h3></th>
+			<th><h3><center>Timestamp</center>
+	      </h3></th>
+  </tr>
+  {% for each in question %}
+  <tr>
+    <td><h6><center><a>{{each.question}}</center></h6></td></a>
+     <td><h6><center><a>{{each.date}}</center></h6></td></a>
+  </tr>
+      {% endfor %}
+
+{% endblock %}
+-->
+
+<!-- DO NOT TOUCH BELOW THIS POINT -->
+
   <div class="container-fluid">
 
       <div class="header">
@@ -214,10 +278,12 @@
 
       <div class="row">
           <div class="story col-xs-12">
-            
+
               <div class="story-image">
+
                 <img src="{% static 'images/aurynblacklogo.png' %}" width="100" height="100" alt="Story-Img">
-              </div>
+
+
               <!-- <div class="img-text">
               Jul 10th, 2018
               </div>
@@ -233,6 +299,25 @@
         </div>
       </div>
 
+
+      
+      <div class="row">
+        <div class="answers">
+          <div class="answers-container col-xs-12">
+            <div class="question">
+              Where are you from?
+            </div>
+            <div class="ans-date">
+              {{ map.last.timestamp.date }}
+            </div>
+            <div class="ans-text col-xs-12">
+            </div>
+          </div>
+        </div>
+      </div>
+        
+      <div id="map">{{ map.last.lat }}, {{ map.last.lon }}</div>
+
       <div class="row">
         <div class="answers">
           <div class="answers-container col-xs-12">
@@ -244,12 +329,11 @@
              </div>
           </div>
           <div class="ans-text col-xs-12">
-            Mint chocolate chip!
+            {{savedrideranswer.youranswer.last}}
          </div>
         </div>
-
       </div>
-   
+
     <div class="row">
       <div class="navbar col-xs-12">
           <a class="nav-img" href="../stories_view">
@@ -263,13 +347,29 @@
           </a>
       </div>
     </div>
-
-
   </div>
-
-
   <script>
-    
+  var map;
+  function initMap() {
+    var coord = document.getElementById('map').innerHTML.split(',');
+    var location = {lat: parseFloat(coord[0]), lng: parseFloat(coord[1])};
+    console.log(location);
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: location,
+      zoom: 8
+    });
+    placeMarker(map, location);
+  }
+  function placeMarker(map, location) {
+    var marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+  }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq4ZAaEj2teuoMC5z38ZJWo7B34Bn2tgo&callback=initMap">
+
   </script>
 </body>
 </html>

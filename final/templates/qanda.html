@@ -2,18 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Map Question</title>
+  <title>Question and Answer Rider View</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static '/vendors/bootstrap/css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}" />
 
     <script src="{% static '/vendors/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static '/vendors/jquery-ui.min.js' %}"></script>
 
-	<style type="text/css">
+  <style type="text/css">
         body {
             width: auto;
             height: auto;
@@ -119,7 +119,7 @@
             margin-top: -10px;
             margin-left: -20px;
         }
-      #map {
+        #map {
         height: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
@@ -141,7 +141,7 @@
         line-height: 30px;
         padding-left: 10px;
       }
-	</style>
+  </style>
 
 </head>
 
@@ -156,64 +156,35 @@
             </div>
             <div class='col-6'>
                 <hgroup class='speech-bubble' style='color:white;'>
-                Where are you from? Let me know by placing a pin!
+                    {{ question.last.question }}
                 </hgroup>
             </div>
+            <!-- block content !-->
+            
+    <form action="{{earn}}" method="post" novalidate>
+        {% csrf_token %}
+        <br>
+        <div class="container mb-5">
+            <div class="row">
+                {% for field in form  %}
+                    <div class="col-sm-6">
+                        <b>{{ field.label_tag }}{{ field }} 
+                        <br><br>
+                    </div>
+                {% endfor %}
+                <!-- block content !-->
+            </div>  
+        </div>
+        <center><input type="submit" value="Submit" id = "message"/></center>
+    </form>
         </div>
         <div id="map" style="width:100%;height:90%;"></div>
         <div class='row'>
-            <div class='col-4' align="center">
-                <input onclick='deleteMarkers();' type=button value="Redo">
-            </div>
-            <div class='col-4' align="center"></div>
-            <div class='col-4' align="center">
-                <input onclick='save();' type=button value="Save">
-            </div>
         </div>
 
     </div>
 
     <script>
-      var map;
-      var markers = [];
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 37.775, lng: -122.419},
-          zoom: 8
-        });
-        google.maps.event.addListener(map, 'click', function(event) {
-          placeMarker(map, event.latLng);
-        });
-      }
-      function placeMarker(map, location) {
-        var marker = new google.maps.Marker({
-          position: location,
-          map: map
-        });
-        markers.push(marker)
-        var infowindow = new google.maps.InfoWindow({
-          content: 'Latitude: ' + location.lat() + '<br>Longitude: ' + location.lng()
-        });
-        infowindow.open(map,marker);
-      }
-      function deleteMarkers() {
-        setMapOnAll(null);
-        markers = [];
-      }
-      function setMapOnAll(map) {
-        for (var i = 0; i < markers.length; i++) {
-          markers[i].setMap(map);
-        }
-      }
-      function savetest() {
-        for (var i = 0; i < markers.length; i++) {
-          var m = markers[i];
-          var now = new Date();
-          var pin = Map_Q(lat=m.position.lat().toString(), lon=m.position.lng().toString(), timestamp=now);
-          pin.save();
-          console.log(pin.now);
-        }
-      }
       function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -233,20 +204,14 @@
       var URL = "{% url 'map' %}";
 
       function save() {
-        for (var i = 0; i < markers.length; i++) {
-          var m = markers[i];
-          var location = m.position.lat().toString() + ',' + m.position.lng().toString();
-          var data = {
-              'coord': location, 
-              'csrfmiddlewaretoken': csrftoken
-          };
-          $.post(URL, data);
-          window.location="{% url 'rider1' %}";
-        }
+        var m = markers[0];
+        var location = m.position.lat().toString() + ',' + m.position.lng().toString();
+        var data = {
+            'coord': location, 
+            'csrfmiddlewaretoken': csrftoken
+        };
+        $.post(URL, data);
       }
-    </script>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq4ZAaEj2teuoMC5z38ZJWo7B34Bn2tgo&callback=initMap">
     </script>
 </body>
 </html>

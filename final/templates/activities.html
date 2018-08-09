@@ -1,8 +1,16 @@
+<<<<<<< HEAD
+
+=======
+>>>>>>> 917b4d39aff50d7c0de4259e94937d4d0a0def9b
 {% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
+  <title> Activities</title>
+=======
   <title>Question Settings Dashboard</title>
+>>>>>>> 917b4d39aff50d7c0de4259e94937d4d0a0def9b
 
   <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
   <meta charset="utf-8">
@@ -226,19 +234,9 @@
             Question
           </div>
           <div class="row dash-content">
-            What's your favorite ice cream flavor?
-          </div>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="row dash-description">
-            Drawing
-          </div>
-          <div class="row dash-content">
-            Draw me someone you love!
+            <a href="../questionview" style="text-decoration:none">
+            {{ question.last.question }}
+            </a>
           </div>
         </div>
       </div>
@@ -249,7 +247,9 @@
             Biography
           </div>
           <div class="row dash-content">
-            Hi there! I'm Brian. I'm hard of hearing, but it doesn't mean we can't communicate! A little bit about me: I hail from Sacramento and, I happen to be a huge fan of anything chocolate. During my spare time, you can find me rock climbing, drawing, or driving for rideshare. Feel free to leave a note!
+            <a href="../bio" style="text-decoration:none">
+            {{ driverbio.last.bio }}
+          </a>
           </div>
         </div>
       </div>
