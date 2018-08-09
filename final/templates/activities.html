@@ -209,8 +209,8 @@
   <div class="container-fluid">
 
       <div class="col-xs-12 header">
-         <img src="images/auryntext.png" width="120" height="55">
-         <div class="add-btn" href="add_activity.html">
+         <img src="{% static 'images/auryntext.png' %}" width="120" height="55">
+         <div class="add-btn" href="add_activity">
             +
           </div>
       </div>
@@ -257,14 +257,14 @@
    
     <div class="row">
       <div class="navbar col-xs-12">
-          <a class="nav-img" href="stories_view.html">
-            <img src="images/book.svg" width="30" height="30" alt="Story">
+          <a class="nav-img" href="../stories_view">
+            <img src="{% static 'images/book.svg' %}" width="30" height="30" alt="Story">
           </a>
-          <a class="nav-img" href="driverview.html">
-            <img src="images/aurynblacklogo.png" width="50" height="27" alt="Home">
+          <a class="nav-img" href="../driverview">
+            <img src="{% static 'images/aurynblacklogo.png' %}" width="50" height="27" alt="Home">
           </a>
-          <a class="nav-img" href="activities.html">
-            <img src="images/gear.svg" width="30" height="30" alt="Settings">
+          <a class="nav-img" href="../activities">
+            <img src="{% static 'images/gear.svg' %}" width="30" height="30" alt="Settings">
           </a>
       </div>
     </div>

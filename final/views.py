@@ -54,12 +54,12 @@ def add_activity(request):
 def stories_view(request):
     if request.method == "GET":
       fetched_questions = Activity.objects.all()
-    return render(request, 'templates/stories_view.html', {'question': fetched_questions})
+    return render(request, 'stories_view.html', {'question': fetched_questions})
 
 def change_activity(request):
     if request.method == "GET":
       fetched_questions = Activity.objects.all()
-    return render(request, 'templates/change_activity.html', {'question': fetched_questions})
+    return render(request, 'change_activity.html', {'question': fetched_questions})
 
 def draw(request):
     return render(request, 'draw.html')
