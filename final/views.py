@@ -49,7 +49,7 @@ def add_activity(request):
             send.save()
     else:
         form = ActivityEditForm()
-    return render(request, 'edit_activities.html', {'form':form})
+    return render(request, 'add_activity.html', {'form':form})
 
 def stories_view(request):
     if request.method == "GET":
