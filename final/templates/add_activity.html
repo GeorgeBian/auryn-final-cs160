@@ -99,6 +99,7 @@
     box-shadow: 5px 5px 30px #E8E8E8;
     font-size: 12px;
     color: gray;
+    text-decoration: none;
   }
 
   .submit-button {
@@ -126,7 +127,7 @@
 <body>
 
   <div class="container-fluid">
-    <button class="back-button col-xs-3"> < Back </button>
+    <button class="back-button col-xs-3" href="activites.html"> < Back </button>
     <!-- Adding new activity-->
   {% block content %}
     <form action="{{earn}}" method="post" novalidate>
