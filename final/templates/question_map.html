@@ -141,14 +141,29 @@
         line-height: 30px;
         padding-left: 10px;
       }
+
+      .row-ques {
+        text-decoration: none;
+        margin: 0 auto;
+        display: flex;
+      }
+
+      .btns {
+        float: right;
+        display: flex;
+      }
+
+      .back {
+        text-decoration: none;
+      }
 	</style>
 
 </head>
 
 <body>
     <div class='Answer-Frame'>
-        <div class='row'>
-            <div class='col-2'>
+        <div class='row row-ques'>
+            <div class='back col-2'>
                 <a href='/rider1/' style="color:black"><div class=”backbutton”> &#9665; Back </div></a>
             </div>
             <div class='col-2'>
@@ -160,8 +175,7 @@
                 </hgroup>
             </div>
         </div>
-        <div id="map" style="width:100%;height:90%;"></div>
-        <div class='row'>
+        <div class='row btns'>
             <div class='col-4' align="center">
                 <input onclick='deleteMarkers();' type=button value="Redo">
             </div>
@@ -170,6 +184,9 @@
                 <input onclick='save();' type=button value="Save">
             </div>
         </div>
+
+        <div id="map" style="width:100%;height:90%;"></div>
+        
 
     </div>
 
